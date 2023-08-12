@@ -13,6 +13,6 @@ def about(request):
     text = f"""
     Имя: <b>{author["name"]}</b><br>
     Фамилия: <b>{author["surname"]}</b><br>
-    email: <b>{author["email"]}</b>   
+    email: {author["email"]}   
     """
     return HttpResponse(text)
