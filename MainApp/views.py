@@ -38,7 +38,7 @@ def page_item(request, id):
             Кол-во: {item['quantity']}
             """
             return HttpResponse(text)
-    raise Http404(f"Товар с id={id} не найден")
+    raise Http404(f"Товар с id={id} не найден!")
 
 def items_list(request):
     text = "<ol>"
