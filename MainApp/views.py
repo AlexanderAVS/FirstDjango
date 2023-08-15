@@ -31,12 +31,16 @@ def about(request):
 def page_item(request, id):
     for item in items:
         if item['id'] == id:
-            text = f"""
-            Товар {item['name']}<br>
-            Кол-во: {item['quantity']}<br><br>
-            <a href='/items'>Назад к списку товаров</a>
-            """
-            return HttpResponse(text)
+            context = {
+                "item": item
+            }
+            return render(request, "item_page.html", context)
+    #         text = f"""
+    #         Товар {item['name']}<br>
+    #         Кол-во: {item['quantity']}<br><br>
+    #         <a href='/items'>Назад к списку товаров</a>
+    #         """
+    #         return HttpResponse(text)
     raise Http404(f"Товар с id={id} не найден!")
 
 
