@@ -18,7 +18,7 @@ items = [
 
 # Create your views here.
 def home(request):
-    return HttpResponse("Main page")
+    return render(request, 'index.html')
 
 
 def about(request):
@@ -35,7 +35,8 @@ def page_item(request, id):
         if item['id'] == id:
             text = f"""
             Товар {item['name']}<br>
-            Кол-во: {item['quantity']}
+            Кол-во: {item['quantity']}<br><br>
+            <a href='/items'>Назад к списку товаров</a>
             """
             return HttpResponse(text)
     raise Http404(f"Товар с id={id} не найден!")
