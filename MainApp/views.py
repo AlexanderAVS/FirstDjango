@@ -22,12 +22,10 @@ def home(request):
 
 
 def about(request):
-    text = f"""
-    Имя: <b>{author["name"]}</b><br>
-    Фамилия: <b>{author["surname"]}</b><br>
-    email: <b>{author["email"]}</b>   
-    """
-    return HttpResponse(text)
+    context = {
+        "author": author
+    }
+    return render(request, 'about.html', context)
 
 
 def page_item(request, id):
@@ -43,9 +41,13 @@ def page_item(request, id):
 
 
 def items_list(request):
-    text = "<ol>"
-    for item in items:
-        text += f"<a href='/item/{item['id']}'><li>{item['name']}</li></a>"
-    text += "</ol>"
-    return HttpResponse(text)
+    context = {
+        "items": items
+    }
+    return render(request, "items_list.html", context)
+    # text = "<ol>"
+    # for item in items:
+    #     text += f"<a href='/item/{item['id']}'><li>{item['name']}</li></a>"
+    # text += "</ol>"
+    # return HttpResponse(text)
 
