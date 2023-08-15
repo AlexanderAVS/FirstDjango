@@ -40,10 +40,11 @@ def page_item(request, id):
             return HttpResponse(text)
     raise Http404(f"Товар с id={id} не найден!")
 
+
 def items_list(request):
     text = "<ol>"
     for item in items:
-        text += f"<li>{item['name']}</li>"
+        text += f"<a href='/item/{item['id']}'><li>{item['name']}</li></a>"
     text += "</ol>"
     return HttpResponse(text)
 
