@@ -20,7 +20,7 @@ def page_item(request, id):
             }
             return render(request, "item_page.html", context)
 
-    raise Http404(f"Товар с id={id} не найден!")
+    raise Http404(f"Товар с id={id} не найден")
 
 
 def items_list(request):
