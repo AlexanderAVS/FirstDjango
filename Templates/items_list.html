@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        li {
+        display: inline-block;
+        border: 2px solid blue;
+        padding: 10px;
+        }
+    </style>
 </head>
 <body>
 <header>
@@ -12,7 +19,10 @@
 <ol>
     {% for item in items %}
         <a href="/item/{{ item.id }}">
-            <li>{{ item.name }}</li>
+            <li>
+                <div>{{ item.name }}</div>
+                <div>Описание товара</div>
+            </li>
             </a>
     {% endfor %}
 </ol>
